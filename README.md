@@ -29,5 +29,5 @@ A simple chatbot built with **HTML**, **CSS**, and **JavaScript**, powered by th
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/yourusername/your-chatbot-repo.git
-cd your-chatbot-repo
+git clone https://github.com/bharath5626/AI-CHATBOT
+cd AI-CHATBOT 
