@@ -4,7 +4,7 @@ A simple chatbot built with **HTML**, **CSS**, and **JavaScript**, powered by th
 
 
 ##Live Testing ##
-https://github.com/Bharath5626/AI-CHATBOT
+
 ---
 
 ## 🚀 Features
