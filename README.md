@@ -2,6 +2,9 @@
 
 A simple chatbot built with **HTML**, **CSS**, and **JavaScript**, powered by the **Groq API** and the **llama3-8b-8192** model. This project demonstrates how to connect a frontend interface to a cloud-hosted AI model for real-time responses.
 
+
+##Live Testing ##
+https://github.com/Bharath5626/AI-CHATBOT
 ---
 
 ## 🚀 Features
