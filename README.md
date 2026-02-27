@@ -1,11 +1,8 @@
 # 🤖 AI Troubleshooting Assistant
 
 An AI-powered technical support chatbot designed to help diagnose and resolve common software, infrastructure, and development issues.
-
 The assistant is built using a fine-tuned **Mistral-7B** model with **LoRA adapters** and deployed through a lightweight **Gradio web interface**.
-
 The system focuses on troubleshooting problems across multiple domains such as DevOps, backend development, infrastructure, and system administration.
-
 ---
 
 # 🚀 Features
