@@ -1,223 +1,209 @@
+# 🤖 AI Troubleshooting Assistant
+
+An AI-powered technical support chatbot designed to help diagnose and resolve common software, infrastructure, and development issues.
+
+The assistant is built using a fine-tuned **Mistral-7B** model with **LoRA adapters** and deployed through a lightweight **Gradio web interface**.
+
+The system focuses on troubleshooting problems across multiple domains such as DevOps, backend development, infrastructure, and system administration.
+
 ---
-title: DevOps Troubleshooting Chatbot
-emoji: 🤖
-colorFrom: blue
-colorTo: purple
-sdk: gradio
-sdk_version: "4.0.0"
-app_file: app.py
-pinned: false
+
+# 🚀 Features
+
+• AI-powered troubleshooting assistant for technical issues
+• Multi-domain knowledge across development and infrastructure
+• Fine-tuned LLM using parameter-efficient training
+• Interactive web interface for easy testing
+• Lightweight deployment using quantized inference
+
 ---
-## 🎯 What It Does
 
-This chatbot helps developers and DevOps engineers troubleshoot:
+# 🧠 Domains Covered
 
-- **🐳 Docker Issues**: Container exits, networking, volume mounting
-- **📦 Git Problems**: Merge conflicts, detached HEAD states, workflow errors
-- **🖥️ Linux/System Admin**: Permission issues, shell scripting, cron jobs
-- **☁️ CI/CD & Cloud**: Pipeline failures, deployment issues
-- **🔧 Backend**: API bottlenecks, database connection problems
+The chatbot is trained on structured troubleshooting examples covering multiple technical areas:
 
-## 🚀 Quick Start
+* Docker & containerization
+* Git workflows and version control
+* Linux & system administration
+* CI/CD pipelines
+* Backend debugging
+* API issues
+* Database connectivity
+* Cloud deployment problems
+* Networking basics
+* Application runtime errors
 
-### Prerequisites
-```bash
-Python 3.8+
-4GB+ RAM (for 4-bit quantized model)
-CUDA-capable GPU (optional, but recommended)
+---
+
+# 🏗️ System Architecture
+
+```
+User Question
+      ↓
+Gradio Web Interface
+      ↓
+Chatbot Inference Layer
+      ↓
+Fine-Tuned Mistral-7B (LoRA Adapter)
+      ↓
+Generated Troubleshooting Response
 ```
 
-### Installation
+---
 
-1. **Clone the repository**
-```bash
-git clone https://github.com/Bharath5626/devops-chatbot.git
-cd devops-chatbot
+# ⚙️ Model Details
+
+Base Model
+
+```
+mistralai/Mistral-7B-Instruct-v0.2
 ```
 
-2. **Install dependencies**
-```bash
+Fine-Tuning Method
+
+```
+LoRA (Low Rank Adaptation)
+```
+
+Training Setup
+
+| Parameter     | Value |
+| ------------- | ----- |
+| LoRA Rank     | 16    |
+| LoRA Alpha    | 32    |
+| Dropout       | 0.05  |
+| Epochs        | 3     |
+| Learning Rate | 2e-4  |
+
+The model was fine-tuned on curated troubleshooting instruction-response examples covering multiple technical domains.
+
+---
+
+# 📂 Project Structure
+
+```
+ai-troubleshooting-assistant
+│
+├── app.py              # Gradio interface
+├── chatbot.py          # Model loading and inference logic
+├── requirements.txt    # Python dependencies
+├── README.md           # Project documentation
+│
+├── notebooks
+│   └── training.ipynb  # Fine-tuning notebook
+│
+└── dataset
+    └── sample_data.json
+```
+
+---
+
+# 🛠️ Installation
+
+Clone the repository
+
+```
+git clone https://github.com/Bharath5626/ai-troubleshooting-assistant.git
+cd ai-troubleshooting-assistant
+```
+
+Install dependencies
+
+```
 pip install -r requirements.txt
 ```
 
-3. **Run the chatbot**
-```bash
-python app/chatbot.py
-```
-
-## 🏗️ Architecture
+Run the chatbot
 
 ```
-Base Model: Mistral-7B-Instruct-v0.2
-   ↓
-LoRA Fine-tuning (r=16, alpha=32)
-   ↓
-490 DevOps-specific examples
-   ↓
-4-bit Quantization (NF4)
-   ↓
-DevOps Troubleshooting Chatbot
+python app.py
 ```
 
-## 📊 Model Details
-
-- **Base Model**: `mistralai/Mistral-7B-Instruct-v0.2`
-- **Fine-tuning Method**: LoRA (Low-Rank Adaptation)
-- **Training Dataset**: 490 instruction-response pairs
-- **Model Size**: ~4GB (quantized)
-- **Inference Speed**: ~2-3 tokens/sec (CPU), ~20-30 tokens/sec (GPU)
-
-### Training Configuration
-```python
-LoRA Config:
-  - Rank (r): 16
-  - Alpha: 32
-  - Target Modules: q_proj, v_proj
-  - Dropout: 0.05
-
-Training:
-  - Epochs: 3
-  - Batch Size: 2
-  - Gradient Accumulation: 4
-  - Learning Rate: 2e-4
-```
-
-## 💡 Usage Examples
-
-### Example 1: Docker Container Issue
-```
-User: My Docker container exits immediately after starting
-
-Bot: Check the Docker logs using `docker logs <container_id>` and ensure 
-the main process doesn't exit. Common causes:
-1. Missing CMD/ENTRYPOINT
-2. Application crashes on startup
-3. Incorrect working directory
-...
-```
-
-### Example 2: Git Merge Conflict
-```
-User: How do I resolve a Git merge conflict?
-
-Bot: To resolve merge conflicts:
-1. `git status` to see conflicted files
-2. Open files and look for <<<<<<< HEAD markers
-3. Edit to keep desired changes
-4. `git add <resolved-files>`
-5. `git commit` to complete merge
-...
-```
-
-## 🛠️ Project Structure
+The interface will launch locally at:
 
 ```
-devops-chatbot/
-├── app/
-│   ├── chatbot.py          # Main chatbot application
-│   ├── gradio_app.py       # Gradio web interface
-│   └── streamlit_app.py    # Streamlit interface
-├── notebooks/
-│   └── training.ipynb      # Model training notebook
-├── docs/
-│   ├── training_guide.md   # How the model was trained
-│   └── deployment.md       # Deployment instructions
-├── tests/
-│   └── test_chatbot.py     # Unit tests
-├── requirements.txt
-├── README.md
-└── LICENSE
+http://localhost:7860
 ```
-
-## 🔧 Configuration
-
-Create a `config.yaml` file:
-
-```yaml
-model:
-  base_model: "mistralai/Mistral-7B-Instruct-v0.2"
-  lora_model: "Lebowski17/devops-lora-mistral"
-  quantization: "4bit"
-  
-generation:
-  max_tokens: 300
-  temperature: 0.7
-  top_p: 0.9
-  
-server:
-  host: "0.0.0.0"
-  port: 7860
-```
-
-## 🌐 Deployment Options
-
-### Option 1: Hugging Face Spaces
-1. Create a new Space on Hugging Face
-2. Upload `app/gradio_app.py` as `app.py`
-3. Add `requirements.txt`
-4. Space will auto-deploy!
-
-### Option 2: Google Colab
-Open the notebook and run all cells. Share the public Gradio link.
-
-### Option 3: Local Development
-```bash
-python app/gradio_app.py
-# Access at http://localhost:7860
-```
-
-### Option 4: Docker
-```bash
-docker build -t devops-chatbot .
-docker run -p 7860:7860 devops-chatbot
-```
-
-## 📈 Performance Metrics
-
-| Metric | Value |
-|--------|-------|
-| Training Loss | 0.45 |
-| Training Time | ~45 minutes (T4 GPU) |
-| Model Size | 3.8 GB (quantized) |
-| Inference (CPU) | 2-3 tokens/sec |
-| Inference (GPU) | 20-30 tokens/sec |
-
-## 🤝 Contributing
-
-Contributions welcome! Please feel free to submit a Pull Request. For major changes, please open an issue first.
-
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
-
-## 📝 Future Improvements
-
-- [ ] Add conversation memory across sessions
-- [ ] Implement RAG for documentation search
-- [ ] Support for uploading log files
-- [ ] Multi-turn conversation context
-- [ ] Add more specialized modules (Kubernetes, Terraform, etc.)
-- [ ] Fine-tune on larger dataset (1000+ examples)
-
-## 📄 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## 🙏 Acknowledgments
-
-- **Mistral AI** for the base model
-- **Hugging Face** for hosting and inference tools
-- **PEFT/LoRA** for efficient fine-tuning
-- The DevOps community for problem scenarios
-
-## 📧 Contact
-
-**Bharath** - [Bharathsiva453@gmail.com](mailto:Bharathsiva453@gmail.com)
-
-Project Link: [https://github.com/Bharath5626/devops-chatbot](https://github.com/Bharath5626/devops-chatbot)
 
 ---
 
-⭐ If you find this project helpful, please give it a star!
+# 🌐 Deployment
+
+The chatbot can be deployed using:
+
+• Hugging Face Spaces
+• Docker containers
+• Cloud VM instances
+• Local machine for testing
+
+Example Hugging Face deployment uses a Gradio Space.
+
+---
+
+# 💡 Example Usage
+
+Example 1
+
+User
+
+```
+My Docker container exits immediately after starting
+```
+
+Assistant
+
+```
+Check container logs using `docker logs <container_id>`.
+Common causes include missing CMD instructions,
+application startup failures, or incorrect working directories.
+```
+
+Example 2
+
+User
+
+```
+How do I resolve a Git merge conflict?
+```
+
+Assistant
+
+```
+Run `git status` to see conflicted files.
+Open the files and resolve the conflict markers.
+After resolving, run `git add` and `git commit` to complete the merge.
+```
+
+---
+
+# 📈 Future Improvements
+
+* Retrieval-Augmented Generation (RAG) for documentation search
+* Log file analysis capability
+* Context-aware multi-turn conversations
+* Support for additional infrastructure domains
+* Expanded training dataset
+
+---
+
+# 👨‍💻 Author
+
+Bharath S
+
+Computer Science / Information Technology student focused on:
+
+* AI applications
+* full-stack development
+* developer productivity tools
+
+---
+
+# ⭐ Acknowledgments
+
+* Mistral AI for the base model
+* Hugging Face ecosystem for model hosting and tools
+* Open source ML community
+
+---
+
+If you'd like, I can also show you **3 small additions that instantly make this README look like a senior-level AI project (the kind recruiters notice immediately)**.
