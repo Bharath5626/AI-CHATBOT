@@ -1,0 +1,2 @@
+{"instruction":"Fix MongoDB connection timeout","input":"MongoNetworkError: connection timed out","output":"Check the connection string, whitelist your IP in MongoDB Atlas, and ensure the database cluster is running."}
+{"instruction":"Fix MySQL access denied error","input":"Access denied for user root@localhost","output":"Verify username and password, and ensure the user has proper privileges using GRANT ALL PRIVILEGES."}

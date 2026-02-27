@@ -1,0 +1,2 @@
+{"instruction":"Fix app works locally but fails in production","input":"App runs locally but crashes after deployment","output":"Check environment variables, production build settings, and logs. Production often lacks local configs like .env or dev dependencies."}
+{"instruction":"Fix Render deployment build failed","input":"Build failed during npm install on Render","output":"Ensure package.json includes all dependencies and specify Node version using an engines field in package.json."}

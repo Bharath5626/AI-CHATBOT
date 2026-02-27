@@ -1,0 +1,5 @@
+{"instruction":"Fix git push rejected non-fast-forward","input":"error: failed to push some refs to origin","output":"Your local branch is behind the remote. Run `git pull --rebase origin main`, resolve conflicts if prompted, then run `git push` again."}
+{"instruction":"Fix git merge conflict","input":"Auto-merging failed; fix conflicts and commit the result.","output":"Open the conflicted files and search for <<<<<<< markers. Edit the correct code, remove markers, then run `git add .` and `git commit`."}
+{"instruction":"Fix detached HEAD state","input":"You are in 'detached HEAD' state.","output":"Create a new branch from the current commit using `git checkout -b new-branch-name` to keep your changes."}
+{"instruction":"Fix git authentication failed","input":"fatal: Authentication failed for https://github.com/...","output":"GitHub no longer accepts passwords. Create a Personal Access Token and use it as your password or switch to SSH authentication."}
+{"instruction":"Fix git large file error","input":"File is 150MB; exceeds GitHub limit of 100MB.","output":"Remove the file from history using `git rm --cached <file>` and use Git LFS to store large files."}

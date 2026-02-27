@@ -1,0 +1,2 @@
+{"instruction":"Fix npm dependency conflict","input":"npm ERR! ERESOLVE unable to resolve dependency tree","output":"Run `npm install --legacy-peer-deps` or update conflicting package versions in package.json."}
+{"instruction":"Fix module not found error in React","input":"Module not found: Can't resolve './App.css'","output":"Check file path and filename case sensitivity. Ensure the file exists in the correct directory."}

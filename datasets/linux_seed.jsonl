@@ -1,0 +1,5 @@
+{"instruction":"Fix permission denied in Linux","input":"bash: ./script.sh: Permission denied","output":"Make the file executable using `chmod +x script.sh` and run it again."}
+{"instruction":"Fix command not found","input":"npm: command not found","output":"Install Node.js and restart the terminal. Verify installation using `node -v` and `npm -v`."}
+{"instruction":"Fix disk space full error","input":"No space left on device","output":"Check disk usage using `df -h` and delete unnecessary files or logs to free space."}
+{"instruction":"Fix service not starting","input":"systemctl status shows failed","output":"Check logs using `journalctl -u <service>` to find the root cause and fix configuration errors."}
+{"instruction":"Fix environment variable not found","input":"process.env.API_KEY undefined","output":"Add the variable to your .env file and load it using a library like dotenv or export it in the shell."}

@@ -1,0 +1,2 @@
+{"instruction":"Fix GitHub Actions workflow failing","input":"Error: Process completed with exit code 1 in GitHub Actions","output":"Open the Actions logs to find the failing step. Common causes are missing environment variables or incorrect build commands in the workflow file."}
+{"instruction":"Fix missing environment variables in deployment","input":"Application crashes after deployment due to missing env variables","output":"Add required environment variables in your hosting platform dashboard (Render/Vercel/Heroku) and redeploy the app."}

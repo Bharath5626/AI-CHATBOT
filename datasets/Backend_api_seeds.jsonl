@@ -1,0 +1,5 @@
+{"instruction":"Fix CORS policy blocked request","input":"Access to fetch blocked by CORS policy","output":"Enable CORS in the backend. In Express install cors and add `app.use(cors())`."}
+{"instruction":"Fix 500 internal server error","input":"API returns status 500","output":"Check server logs to identify the exception. Common causes include database connection errors or undefined variables."}
+{"instruction":"Fix database connection refused","input":"ECONNREFUSED localhost:5432","output":"Ensure the database service is running and connection credentials are correct."}
+{"instruction":"Fix JWT invalid signature","input":"JsonWebTokenError: invalid signature","output":"Ensure the same secret key is used for signing and verifying the token."}
+{"instruction":"Fix API rate limit exceeded","input":"429 Too Many Requests","output":"Implement retry logic with exponential backoff or increase rate limits on the API provider."}

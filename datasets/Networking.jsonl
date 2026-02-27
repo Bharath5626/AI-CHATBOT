@@ -1,0 +1,2 @@
+{"instruction":"Fix fetch failed network error","input":"TypeError: Failed to fetch","output":"Ensure the backend server is running, the URL is correct, and CORS is enabled if calling from a browser."}
+{"instruction":"Fix SSL certificate error","input":"NET::ERR_CERT_AUTHORITY_INVALID","output":"Use HTTPS with a valid SSL certificate. For development, use tools like mkcert or access the site via HTTP."}
